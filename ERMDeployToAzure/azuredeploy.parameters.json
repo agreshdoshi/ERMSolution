@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"sites_ERMApi_name": {
+			"value": "ERMApi"
+		},
+		"serverfarms_ASP_ERM_86f6_externalid": {
+			"value": "/subscriptions/93493f2e-498c-4356-bbe8-2282407a6e98/resourceGroups/ERM/providers/Microsoft.Web/serverfarms/ASP-ERM-86f6"
+		}
+	}
+}

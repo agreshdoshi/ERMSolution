@@ -1,0 +1,159 @@
+﻿{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_ERMApi_name": {
+            "defaultValue": "ERMApi",
+            "type": "String"
+        },
+        "serverfarms_ASP_ERM_86f6_externalid": {
+            "defaultValue": "/subscriptions/93493f2e-498c-4356-bbe8-2282407a6e98/resourceGroups/ERM/providers/Microsoft.Web/serverfarms/ASP-ERM-86f6",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2016-08-01",
+            "name": "[parameters('sites_ERMApi_name')]",
+            "location": "Australia Southeast",
+            "kind": "app",
+            "identity": {
+                "principalId": "d3f8fabd-bde9-43a0-83fd-cc384821670c",
+                "tenantId": "1e385573-61ed-4cab-89af-9b0651e86b2e",
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "ermapi.azurewebsites.net",
+                        "sslState": "Disabled",
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "ermapi.scm.azurewebsites.net",
+                        "sslState": "Disabled",
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[parameters('serverfarms_ASP_ERM_86f6_externalid')]",
+                "reserved": false,
+                "scmSiteAlsoStopped": false,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "httpsOnly": false
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/config",
+            "apiVersion": "2016-08-01",
+            "name": "[concat(parameters('sites_ERMApi_name'), '/web')]",
+            "location": "Australia Southeast",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ERMApi_name'))]"
+            ],
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2017",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$ERMApi",
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "autoHealEnabled": false,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+							"siteAuthSettings": {
+								"enabled": null,
+								"unauthenticatedClientAction": null,
+								"tokenStoreEnabled": null,
+								"allowedExternalRedirectUrls": null,
+								"defaultProvider": null,
+								"clientId": null,
+								"clientSecret": null,
+								"clientSecretCertificateThumbprint": null,
+								"issuer": null,
+								"allowedAudiences": null,
+								"additionalLoginParams": null,
+								"isAadAutoProvisioned": false,
+								"googleClientId": null,
+								"googleClientSecret": null,
+								"googleOAuthScopes": null,
+								"facebookAppId": null,
+								"facebookAppSecret": null,
+								"facebookOAuthScopes": null,
+								"twitterConsumerKey": null,
+								"twitterConsumerSecret": null,
+								"microsoftAccountClientId": null,
+								"microsoftAccountClientSecret": null,
+								"microsoftAccountOAuthScopes": null
+							},
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": 13185,
+                "http20Enabled": false,
+                "minTlsVersion": "1.2",
+                "ftpsState": "AllAllowed",
+                "reservedInstanceCount": 0,
+                "fileChangeAuditEnabled": false
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "apiVersion": "2016-08-01",
+            "name": "[concat(parameters('sites_ERMApi_name'), '/', parameters('sites_ERMApi_name'), '.azurewebsites.net')]",
+            "location": "Australia Southeast",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ERMApi_name'))]"
+            ],
+            "properties": {
+                "siteName": "ERMApi",
+                "hostNameType": "Verified"
+            }
+        }
+    ]
+}
