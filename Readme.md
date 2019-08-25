@@ -1,4 +1,4 @@
-### Project BackgroundProject Background
+### Project Background
 
 The solution needs to:
 
@@ -71,7 +71,7 @@ The solution needs to:
 -  The output is dumped it into the Azure SQL Database.
 -  Then the file is deleted from the blob storage once it is processed.
 
-#### Visual Studio – Code:
+#### Visual Studio â€“ Code:
 
 **Main Rest API App:**
 
