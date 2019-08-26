@@ -45,7 +45,8 @@ The solution needs to:
 #### Source Repository:
 
 -  [https://github.com/agreshdoshi/ERMSolution](https://github.com/agreshdoshi/ERMSolution) - Rest API. Main App.
--  [https://github.com/agreshdoshi/ERMTest](https://github.com/agreshdoshi/ERMTest) - This holds the Azure Factory Data and its deployment template in Azure Resource Manager.
+-  [https://github.com/agreshdoshi/ERMTest](https://github.com/agreshdoshi/ERMTest) - OBSOLETE - This holds the Azure Factory Data and its deployment template in Azure Resource Manager.
+-  [https://github.com/agreshdoshi/ERMTOULPDataFactory](https://github.com/agreshdoshi/ERMTOULPDataFactory) - This holds the Azure Factory Data and its deployment template in Azure Resource Manager.
 -  [https://github.com/agreshdoshi/SampleMeeterApp](https://github.com/agreshdoshi/SampleMeeterApp) - This is just a SampleApp source code in Angular. This is not for assessment purpose. However, It shows on how the service is invoked.
 
 #### Front End:
