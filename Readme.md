@@ -63,12 +63,12 @@ The solution needs to:
 -  The csv file is collected from the blob storage.
 -  Then the raw mapping is done.
 -  Then Aggregate activity flow is executed so that the following five fields are produced as an output:
-  - MeterCode
-  - Date
-  - DataType
-  - MedianValue (On Energy column)
-  - MinimumValue (on Energy column)
-  - MaximumValue (on Energy column)
+    - MeterCode
+    - Date
+    - DataType
+    - MedianValue (On Energy column)
+    - MinimumValue (on Energy column)
+    - MaximumValue (on Energy column)
 -  The output is dumped it into the Azure SQL Database.
 -  Then the file is deleted from the blob storage once it is processed.
 
