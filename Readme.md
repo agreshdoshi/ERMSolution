@@ -81,10 +81,10 @@ The solution needs to:
 -  It has a unit tests at relevant area.
 -  It&#39;s using Global Exception in the middleware component. Specially all 500 error would be handled there.
 -  The solution is divided into layers to maintain separation of concern.
-  -- API
-  -- DataAccess
-  -- Build and Deploy
-  -- Tests
+  - API
+  - DataAccess
+  - Build and Deploy
+  - Tests
 -  Logging of the various stages are flushed out in the console. Ideally something like Serilog would have been better.
 -  Using Automapper to map between Models and Entities.
 -  The solution uses user secrets for storing connecting string.
