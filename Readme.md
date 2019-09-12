@@ -81,10 +81,10 @@ The solution needs to:
 -  It has a unit tests at relevant area.
 -  It&#39;s using Global Exception in the middleware component. Specially all 500 error would be handled there.
 -  The solution is divided into layers to maintain separation of concern.
-  - API
-  - DataAccess
-  - Build and Deploy
-  - Tests
+   - API
+   - DataAccess
+   - Build and Deploy
+   - Tests
 -  Logging of the various stages are flushed out in the console. Ideally something like Serilog would have been better.
 -  Using Automapper to map between Models and Entities.
 -  The solution uses user secrets for storing connecting string.
@@ -108,10 +108,6 @@ The solution needs to:
  ![DFD - ERM](https://user-images.githubusercontent.com/38810792/63645390-75d15c00-c740-11e9-9040-de0dbefdbe0c.png)
 
 ### Limitations and risks of the solution (could have been done better):
-
--  The solution is just accepting TOU files. This have consumed lots of my time. The support ticket was raised with Microsoft and it was found that it was a bug with Microsoft ADF itself where I can&#39;t derive the field in Aggregate column. It was too late to change the solution. Please see the response below:
-
- ![From Microsoft](https://user-images.githubusercontent.com/38810792/63645402-e2e4f180-c740-11e9-9b86-a17b8b78b4f5.png)
 
 -  The API could have been more sophisticated with proper Authorization and with API key in place.
 -  The logging mechanism could have been better by using the tools like Serilog.
